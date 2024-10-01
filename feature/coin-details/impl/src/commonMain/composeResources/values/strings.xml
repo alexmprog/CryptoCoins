@@ -1,0 +1,11 @@
+<resources>
+    <string name="details">Details</string>
+    <string name="market_data">Market Data</string>
+    <string name="market_cap">Market Cap</string>
+    <string name="rank">Rank</string>
+    <string name="low_24h">Low 24h</string>
+    <string name="high_24h">High 24h</string>
+    <string name="no_coins">No coins</string>
+    <string name="try_again">Try again</string>
+    <string name="no_connection">No Internet Connection</string>
+</resources>
