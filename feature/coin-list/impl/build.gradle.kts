@@ -19,6 +19,7 @@ kotlin {
             implementation(libs.kodein.di)
             implementation(libs.decompose)
             implementation(libs.decompose.extensions.compose)
+            implementation(libs.essenty.lifecycle.coroutines)
             implementation(libs.paging.common)
             implementation(libs.paging.compose)
             implementation(compose.runtime)

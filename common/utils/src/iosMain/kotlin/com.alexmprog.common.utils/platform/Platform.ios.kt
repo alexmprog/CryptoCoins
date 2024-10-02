@@ -1,7 +1,5 @@
-package com.alexmprog.common.utils.platfrom
+package com.alexmprog.common.utils.platform
 
-import com.alexmprog.common.utils.platform.Platform
-import com.alexmprog.common.utils.platform.PlatformType
 import platform.UIKit.UIDevice
 
 actual val platform: Platform = Platform(

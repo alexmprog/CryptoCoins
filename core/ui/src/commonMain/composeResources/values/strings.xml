@@ -1,4 +1,4 @@
 <resources>
-    <string name="refresh">Refresh</string>
-    <string name="empty_data_message">There is no data</string>
+    <string name="retry">Retry</string>
+    <string name="no_connection">Something was wrong. Try it later.</string>
 </resources>

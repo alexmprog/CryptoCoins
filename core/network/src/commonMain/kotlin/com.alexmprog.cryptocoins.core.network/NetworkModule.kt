@@ -1,4 +1,4 @@
-package com.alexmprog.thepets.core.network
+package com.alexmprog.cryptocoins.core.network
 
 import io.ktor.client.HttpClient
 import org.kodein.di.DI

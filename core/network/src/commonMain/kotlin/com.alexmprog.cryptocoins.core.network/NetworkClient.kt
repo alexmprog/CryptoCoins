@@ -1,4 +1,4 @@
-package com.alexmprog.thepets.core.network
+package com.alexmprog.cryptocoins.core.network
 
 import com.alexmprog.common.logger.Logger
 import com.alexmprog.common.utils.resource.Error

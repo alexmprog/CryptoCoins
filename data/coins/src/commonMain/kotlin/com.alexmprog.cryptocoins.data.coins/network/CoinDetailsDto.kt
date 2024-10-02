@@ -10,7 +10,11 @@ data class CoinDetailsDto(
     @SerialName("market_cap_rank")
     val marketCapRank: Int? = null,
     @SerialName("market_data")
-    val marketData: MarketData? = null
+    val marketData: MarketData? = null,
+    @SerialName("description")
+    val description: Description? = null,
+    @SerialName("categories")
+    val categories: List<String>? = null,
 ) {
 
     @Serializable
@@ -42,4 +46,10 @@ data class CoinDetailsDto(
             val usd: Long? = null,
         )
     }
+
+    @Serializable
+    data class Description(
+        @SerialName("en")
+        val value: String? = null
+    )
 }

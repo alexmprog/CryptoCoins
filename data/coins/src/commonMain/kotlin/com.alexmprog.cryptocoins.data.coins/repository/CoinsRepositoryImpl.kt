@@ -30,7 +30,7 @@ internal class CoinsRepositoryImpl(
     }
 
     override fun getCoins(): Flow<PagingData<Coin>> = Pager(
-        config = PagingConfig(pageSize = 25, initialLoadSize = 0, enablePlaceholders = false),
+        config = PagingConfig(pageSize = 25, initialLoadSize = 25, enablePlaceholders = false),
         pagingSourceFactory = {
             ResourcePagingResource { page, pageSize ->
                 coinService.getCoins(USD_CURRENCY, SORT_ORDER, pageSize, page).map { it.map { it.toModel() } }
@@ -55,6 +55,8 @@ internal fun CoinDto.toModel(): Coin =
 internal fun CoinDetailsDto.toModel(): CoinDetails =
     CoinDetails(
         id = id,
+        description = description?.value,
+        categories = categories,
         marketCap = marketData?.marketCap?.usd,
         marketCapRank = marketCapRank ?: marketData?.marketCapRank,
         high24h = marketData?.high24h?.usd,

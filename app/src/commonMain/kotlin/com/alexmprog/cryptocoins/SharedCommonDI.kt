@@ -6,7 +6,7 @@ import com.alexmprog.cryptocoins.domain.coins.di.coinsDomainModule
 import com.alexmprog.cryptocoins.feature.coindetails.impl.di.coinDetailsFeatureModule
 import com.alexmprog.cryptocoins.feature.coinlist.impl.di.coinListFeatureModule
 import com.alexmprog.cryptocoins.feature.home.impl.di.homeFeatureModule
-import com.alexmprog.thepets.core.network.networkModule
+import com.alexmprog.cryptocoins.core.network.networkModule
 import org.kodein.di.DI
 
 val sharedCommonDI = DI {

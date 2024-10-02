@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface CoinListComponent {
 
-    val model: Flow<PagingData<Coin>>
+    val state: Flow<PagingData<Coin>>
 
     fun onCoinClicked(coin: Coin)
 

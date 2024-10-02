@@ -2,7 +2,7 @@ package com.alexmprog.cryptocoins.data.coins.network
 
 import com.alexmprog.common.utils.resource.Error
 import com.alexmprog.common.utils.resource.Resource
-import com.alexmprog.thepets.core.network.fetch
+import com.alexmprog.cryptocoins.core.network.fetch
 import io.ktor.client.HttpClient
 import io.ktor.client.request.header
 import io.ktor.client.request.url
@@ -25,6 +25,8 @@ internal class CoinServiceImpl(private val httpClient: HttpClient) : CoinService
 
     companion object {
         private const val BASE_URL = "https://api.coingecko.com/api/v3/"
+        // TODO: use interceptor in real application
+        private const val TEST_API_KEY = ""
         private const val HEADER = "x-cg-demo-api-key"
         private const val COINS = "coins"
         private const val MARKETS = "markets"
@@ -43,6 +45,7 @@ internal class CoinServiceImpl(private val httpClient: HttpClient) : CoinService
             url {
                 url(BASE_URL)
                 appendPathSegments(COINS, MARKETS)
+                header(HEADER, TEST_API_KEY)
                 parameters.append(VS_CURRENCY, currency)
                 parameters.append(ORDER, order)
                 parameters.append(PER_PAGE, size.toString())
@@ -55,6 +58,7 @@ internal class CoinServiceImpl(private val httpClient: HttpClient) : CoinService
             url {
                 url(BASE_URL)
                 appendPathSegments(COINS, id)
+                header(HEADER, TEST_API_KEY)
             }
         }
 
@@ -66,6 +70,7 @@ internal class CoinServiceImpl(private val httpClient: HttpClient) : CoinService
         url {
             url(BASE_URL)
             appendPathSegments(COINS, id, MARKET_CHART)
+            header(HEADER, TEST_API_KEY)
             parameters.append(VS_CURRENCY, currency)
             parameters.append(DAYS, days.toString())
         }
