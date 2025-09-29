@@ -7,17 +7,12 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import app.cash.paging.LoadStateError
@@ -32,7 +27,6 @@ import com.alexmprog.cryptocoins.core.ui.components.ErrorView
 import com.alexmprog.cryptocoins.core.ui.components.LoadingItem
 import com.alexmprog.cryptocoins.core.ui.components.LoadingView
 import com.alexmprog.cryptocoins.core.ui.no_connection
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,20 +34,12 @@ import org.jetbrains.compose.resources.stringResource
 internal fun CoinListContent(component: CoinListComponentInternal, modifier: Modifier) {
     val items by rememberUpdatedState(component.state.collectAsLazyPagingItems())
     val lazyListState = rememberLazyListState()
-    val coroutineScope = rememberCoroutineScope()
     Scaffold(
         modifier = modifier,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(Res.string.cryptocurrency_prices)) },
-                actions = {
-                    IconButton(onClick = {
-                        items.refresh()
-                        coroutineScope.launch { lazyListState.scrollToItem(0) }
-                    }) {
-                        Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
-                    }
-                })
+            )
         }) { innerPaddings ->
         LazyPagingColumn(
             Modifier.padding(innerPaddings).fillMaxSize(),
