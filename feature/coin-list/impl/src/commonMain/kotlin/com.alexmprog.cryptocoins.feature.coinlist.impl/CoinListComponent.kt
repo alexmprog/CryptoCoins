@@ -11,7 +11,7 @@ import com.arkivanov.essenty.instancekeeper.InstanceKeeper
 import com.arkivanov.essenty.instancekeeper.getOrCreate
 import kotlinx.coroutines.flow.Flow
 
-internal interface CoinListComponentAdapter : CoinListComponent {
+internal interface CoinListComponentInternal : CoinListComponent {
 
     @Composable
     override fun Content(modifier: Modifier) = CoinListContent(this, modifier)
@@ -21,11 +21,11 @@ internal interface CoinListComponentAdapter : CoinListComponent {
     fun onCoinClicked(coin: Coin)
 }
 
-internal class CoinListComponentImpl(
+internal class CoinListComponentInternalImpl(
     componentContext: ComponentContext,
     private val getCoinsUseCase: GetCoinsUseCase,
     private val actions: CoinListComponent.Actions
-) : CoinListComponentAdapter, ComponentContext by componentContext {
+) : CoinListComponentInternal, ComponentContext by componentContext {
 
     private val handler = instanceKeeper.getOrCreate { Handler(getCoinsUseCase()) }
 
@@ -41,7 +41,7 @@ internal class CoinListComponentImpl(
         override fun invoke(
             componentContext: ComponentContext, actions: CoinListComponent.Actions,
         ): CoinListComponent {
-            return CoinListComponentImpl(
+            return CoinListComponentInternalImpl(
                 componentContext = componentContext,
                 getCoinsUseCase = getCoinsUseCase,
                 actions = actions

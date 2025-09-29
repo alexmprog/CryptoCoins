@@ -44,7 +44,7 @@ import org.jetbrains.compose.resources.stringResource
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun CoinDetailsComponentContent(
-    component: CoinDetailsComponentAdapter,
+    component: CoinDetailsComponentInternal,
     modifier: Modifier
 ) {
     val state by component.state.collectAsState()
@@ -66,7 +66,7 @@ internal fun CoinDetailsComponentContent(
 @Composable
 private fun CoinDetailScreen(
     modifier: Modifier,
-    coinDetailsState: CoinDetailsComponentAdapter.State
+    coinDetailsState: CoinDetailsComponentInternal.State
 ) {
     Box(modifier = modifier) {
         Column(

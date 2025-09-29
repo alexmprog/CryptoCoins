@@ -8,15 +8,15 @@ import com.arkivanov.decompose.extensions.compose.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 
 @Composable
-internal fun HomeComponentContent(component: HomeComponentAdapter, modifier: Modifier) {
+internal fun HomeComponentContent(component: HomeComponentInternal, modifier: Modifier) {
     Children(
         stack = component.stack,
         modifier = modifier,
         animation = stackAnimation(fade()),
     ) {
         when (val child = it.instance) {
-            is HomeComponentAdapter.Child.CoinDetails -> child.component.Content(Modifier.fillMaxSize())
-            is HomeComponentAdapter.Child.CoinList -> child.component.Content(Modifier.fillMaxSize())
+            is HomeComponentInternal.Child.CoinDetails -> child.component.Content(Modifier.fillMaxSize())
+            is HomeComponentInternal.Child.CoinList -> child.component.Content(Modifier.fillMaxSize())
         }
     }
 }

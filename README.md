@@ -87,8 +87,6 @@ graph TB
   :feature:coin-list:impl --> :feature:coin-list:api
   :domain:coins --> :common:utils
   :feature:home:api --> :domain:coins
-  :feature:home:api --> :feature:coin-list:api
-  :feature:home:api --> :feature:coin-details:api
   :core:network --> :common:logger
   :core:network --> :common:utils
   :core:ui --> :common:utils

@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-internal interface CoinDetailsComponentAdapter : CoinDetailsComponent {
+internal interface CoinDetailsComponentInternal : CoinDetailsComponent {
 
     @Composable
     override fun Content(modifier: Modifier) = CoinDetailsComponentContent(this, modifier)
@@ -37,19 +37,19 @@ internal interface CoinDetailsComponentAdapter : CoinDetailsComponent {
     fun onBack()
 }
 
-internal class CoinDetailsComponentImpl(
+internal class CoinDetailsComponentInternalImpl(
     componentContext: ComponentContext,
     coroutineDispatcher: CoroutineDispatcher,
     private val getCoinDetailsUseCase: GetCoinDetailsUseCase,
     private val getCoinChartUseCase: GetCoinChartUseCase,
     private val args: CoinDetailsComponent.Args,
     private val actions: CoinDetailsComponent.Actions,
-) : CoinDetailsComponentAdapter, ComponentContext by componentContext {
+) : CoinDetailsComponentInternal, ComponentContext by componentContext {
 
     private val handler =
-        instanceKeeper.getOrCreate { Handler(CoinDetailsComponentAdapter.State(coin = args.coin)) }
+        instanceKeeper.getOrCreate { Handler(CoinDetailsComponentInternal.State(coin = args.coin)) }
 
-    override val state: StateFlow<CoinDetailsComponentAdapter.State> = handler.state.asStateFlow()
+    override val state: StateFlow<CoinDetailsComponentInternal.State> = handler.state.asStateFlow()
 
     private val scope = coroutineScope(coroutineDispatcher + SupervisorJob())
 
@@ -73,7 +73,7 @@ internal class CoinDetailsComponentImpl(
 
     override fun onBack() = actions.onBack()
 
-    private class Handler(initialState: CoinDetailsComponentAdapter.State) :
+    private class Handler(initialState: CoinDetailsComponentInternal.State) :
         InstanceKeeper.Instance {
         val state = MutableStateFlow(initialState)
     }
@@ -88,7 +88,7 @@ internal class CoinDetailsComponentImpl(
             componentContext: ComponentContext,
             args: CoinDetailsComponent.Args,
             actions: CoinDetailsComponent.Actions
-        ): CoinDetailsComponent = CoinDetailsComponentImpl(
+        ): CoinDetailsComponent = CoinDetailsComponentInternalImpl(
             componentContext = componentContext,
             coroutineDispatcher = coroutineDispatcher,
             getCoinDetailsUseCase = getCoinDetailsUseCase,

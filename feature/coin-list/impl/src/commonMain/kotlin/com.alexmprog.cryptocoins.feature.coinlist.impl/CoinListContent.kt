@@ -37,7 +37,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun CoinListContent(component: CoinListComponentAdapter, modifier: Modifier) {
+internal fun CoinListContent(component: CoinListComponentInternal, modifier: Modifier) {
     val items by rememberUpdatedState(component.state.collectAsLazyPagingItems())
     val lazyListState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
