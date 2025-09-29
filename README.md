@@ -111,5 +111,9 @@ class :feature:coin-list:impl kotlin-multiplatform
 
 ```
 ## Architecture
-This repository uses recommended Android [App architecture](https://developer.android.com/topic/architecture).
-![Image of Clean Architecture](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-overview.png)
+This repository uses clean architecture with api/impl multi-modular approach.
+1. Common and Core modules contain some generic logic such as coroutines dispatcher provider, logging, network config and etc
+2. Domain modules contain domain specific logic - clean architecture domain modules.
+3. Data modules contain data specific logic - clean architecture data modules.
+4. Feature modules contain feature specific logic - clean architecture feature presentation modules.
+Each feature module split into 2 api/impl modules to support scaling inside large project.
