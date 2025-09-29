@@ -1,6 +1,6 @@
 # CryptoCoins
 
-![GitHub Logo](/screenshots/android_app_flow.gif)
+![GitHub Logo](/screenshots/app_flow.gif)
 
 ## About
 Compose Multiplatform app which shows CryptoMarket coin prices.
