@@ -1,28 +1,26 @@
 package com.alexmprog.cryptocoins.feature.coindetails.api
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.alexmprog.cryptocoins.domain.coins.model.Coin
-import com.alexmprog.cryptocoins.domain.coins.model.CoinChart
-import com.alexmprog.cryptocoins.domain.coins.model.CoinDetails
 import com.arkivanov.decompose.ComponentContext
-import kotlinx.coroutines.flow.StateFlow
 
 interface CoinDetailsComponent {
 
-    data class State(
-        val coin: Coin? = null,
-        val coinDetails: CoinDetails? = null,
-        val coinChart: CoinChart? = null
-    )
+    @Composable
+    fun Content(modifier: Modifier)
 
-    val state: StateFlow<State>
+    data class Args(val coin: Coin)
 
-    fun onBackPressed()
+    interface Actions {
+        fun onBack()
+    }
 
     fun interface Factory {
         operator fun invoke(
             componentContext: ComponentContext,
-            coin: Coin,
-            onFinished: () -> Unit,
+            args: Args,
+            actions: Actions,
         ): CoinDetailsComponent
     }
 }

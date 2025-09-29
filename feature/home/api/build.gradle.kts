@@ -14,8 +14,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.domain.coins)
-            implementation(projects.feature.coinList.api)
-            implementation(projects.feature.coinDetails.api)
             implementation(libs.decompose)
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -28,7 +26,7 @@ android {
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }

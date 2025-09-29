@@ -50,7 +50,7 @@ internal class CoinsRepositoryImpl(
 }
 
 internal fun CoinDto.toModel(): Coin =
-    Coin(id, name, symbol, currentPrice, priceChangePercentage24h, imageUrl)
+    Coin(id, name, symbol, currentPrice, priceChangePercentage24h?:0.0, imageUrl)
 
 internal fun CoinDetailsDto.toModel(): CoinDetails =
     CoinDetails(
