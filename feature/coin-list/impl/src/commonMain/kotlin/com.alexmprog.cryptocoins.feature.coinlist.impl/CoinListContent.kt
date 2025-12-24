@@ -15,11 +15,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
-import app.cash.paging.LoadStateError
-import app.cash.paging.LoadStateLoading
-import app.cash.paging.compose.LazyPagingItems
-import app.cash.paging.compose.collectAsLazyPagingItems
-import app.cash.paging.compose.itemKey
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.itemKey
 import com.alexmprog.cryptocoins.domain.coins.model.Coin
 import com.alexmprog.cryptocoins.core.ui.components.CoinCard
 import com.alexmprog.cryptocoins.core.ui.components.ErrorItem
@@ -74,11 +73,11 @@ private fun LazyPagingColumn(
         data.loadState.apply {
             when {
 
-                refresh is LoadStateLoading -> {
+                refresh is LoadState.Loading -> {
                     item { LoadingView() }
                 }
 
-                refresh is LoadStateError -> {
+                refresh is LoadState.Error -> {
                     item {
                         ErrorView(
                             message = stringResource(com.alexmprog.cryptocoins.core.ui.Res.string.no_connection),
@@ -88,11 +87,11 @@ private fun LazyPagingColumn(
                     }
                 }
 
-                append is LoadStateLoading -> {
+                append is LoadState.Loading -> {
                     item { LoadingItem() }
                 }
 
-                append is LoadStateError -> {
+                append is LoadState.Error -> {
                     item {
                         ErrorItem(
                             message = stringResource(com.alexmprog.cryptocoins.core.ui.Res.string.no_connection),

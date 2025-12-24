@@ -1,6 +1,6 @@
 package com.alexmprog.cryptocoins.domain.coins.repository
 
-import app.cash.paging.PagingData
+import androidx.paging.PagingData
 import com.alexmprog.common.utils.resource.Error
 import com.alexmprog.common.utils.resource.Resource
 import com.alexmprog.cryptocoins.domain.coins.model.Coin

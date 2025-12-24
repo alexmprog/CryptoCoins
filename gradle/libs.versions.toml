@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.1"
+agp = "8.6.0"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
@@ -39,7 +39,8 @@ decompose = "3.1.0"
 essenty = "2.1.0"
 
 #Paging
-paging = "3.3.0-alpha02-0.5.1"
+paging = "3.3.6"
+pagingCompose = "3.4.0-beta01"
 
 # Coil
 coil = "3.0.0-alpha04"
@@ -98,10 +99,8 @@ decompose-extensions-compose = { module = "com.arkivanov.decompose:extensions-co
 essenty-lifecycle-coroutines = { module = "com.arkivanov.essenty:lifecycle-coroutines", version.ref = "essenty"}
 
 #Paging
-paging-common = { module = "app.cash.paging:paging-common", version.ref = "paging" }
-paging-runtime-uikit = { module = "app.cash.paging:paging-runtime-uikit", version.ref = "paging" }
-paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "paging" }
-
+paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
+paging-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingCompose" }
 
 # Coil
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }

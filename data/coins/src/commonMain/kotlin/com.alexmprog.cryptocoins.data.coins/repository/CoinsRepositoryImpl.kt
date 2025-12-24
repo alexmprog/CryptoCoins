@@ -1,8 +1,8 @@
 package com.alexmprog.cryptocoins.data.coins.repository
 
-import app.cash.paging.Pager
-import app.cash.paging.PagingConfig
-import app.cash.paging.PagingData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.alexmprog.common.utils.resource.Error
 import com.alexmprog.common.utils.resource.Resource
 import com.alexmprog.common.utils.resource.map
@@ -33,7 +33,8 @@ internal class CoinsRepositoryImpl(
         config = PagingConfig(pageSize = 25, initialLoadSize = 25, enablePlaceholders = false),
         pagingSourceFactory = {
             ResourcePagingResource { page, pageSize ->
-                coinService.getCoins(USD_CURRENCY, SORT_ORDER, pageSize, page).map { it.map { it.toModel() } }
+                coinService.getCoins(USD_CURRENCY, SORT_ORDER, pageSize, page)
+                    .map { it.map { it.toModel() } }
             }
         }
     ).flow.flowOn(coroutineDispatcher)
