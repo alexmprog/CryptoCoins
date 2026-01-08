@@ -2,7 +2,7 @@ package com.alexmprog.cryptocoins.data.coins.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingData
+import app.cash.paging.PagingData
 import com.alexmprog.common.utils.resource.Error
 import com.alexmprog.common.utils.resource.Resource
 import com.alexmprog.common.utils.resource.map

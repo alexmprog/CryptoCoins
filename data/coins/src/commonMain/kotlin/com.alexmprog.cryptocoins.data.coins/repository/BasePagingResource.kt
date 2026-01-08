@@ -1,7 +1,7 @@
 package com.alexmprog.cryptocoins.data.coins.repository
 
-import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import app.cash.paging.PagingSource
 import com.alexmprog.common.utils.resource.Resource
 
 class ResourcePagingResource<T : Any>(
